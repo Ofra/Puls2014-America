@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 @font-face {
     font-family: 'open_sansregular';
     src: url('/fuentes/OpenSans-Regular-webfont.eot');
@@ -150,12 +152,10 @@ nav ul #publicar_nav a{
 nav ul #publicar_nav a:before{
 	position: absolute;
 	left:.5em;
-	top: .9em;
+	top: .5em;
 }
 nav ul #publicar_nav a:hover:before{
 	font-size: 20px;
-	
-
 }
 nav ul li a:hover{
 	background: #343B54;
@@ -236,6 +236,27 @@ text-decoration: none;
 }
 
 
+/*Formulario*/
+
+.formulario{
+	padding: 1em;
+	text-align: right;
+	display: none;
+}
+.formulario input{
+	border: 1px solid #ccc;
+	border-radius:5px;
+	padding: 0.2em 0.6em;
+}
+.formulario input[type="submit"]{
+	background: #22BCE0;
+ 	border: 1px solid #22BCE0;
+ 	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
+ 	font-style: italic;
+ 	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+ 	color: white;
+}
+/*MediaQuerys*/
 @media screen and (min-width: 800px){
 	body{
 		

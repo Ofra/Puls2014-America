@@ -1,0 +1,44 @@
+var $form  = $('#formulario'),
+	$titulo = $('#titulo'),
+	$url = $('#link'),
+	$primerPost = $('.item').first(),
+	$lista = $("#contenido");
+
+if (localStorage.getItem('autosave')){
+	$titulo.val(sesionStorage.getItem('titulo'));
+	$url.val(sesionStorage.getItem('url'));
+}
+
+var id=setInterval(function(){
+	sesionStorage.setItem('titulo',$titulo.val());
+	sesionStorage.setItem('url',$url.val());
+},1000);
+
+function mostrarOcultarFormulario(){
+	$form.slideToggle();
+	$lista.slideToggle();
+
+	return false;
+}
+
+function agregarPost(){
+	var titulo = $titulo.val(),
+		url = $url.val(),
+		clone = $primerPost.clone();
+
+	clone.find('.titulo_item a')
+		.text(titulo)
+		.attr('href', url);
+	
+	clone.hide();
+
+	$lista.prepend(clone);
+	mostrarOcultarFormulario();
+	$titulo.val('');
+	$url.val('');
+	clone.slideDown();
+	return false;
+}
+
+$('#publicar_nav a').click( mostrarOcultarFormulario );
+$('#formulario').on('submit', agregarPost)
